@@ -2,10 +2,7 @@
   <section class="wrapper">
     <h2>{{ $t('auth.login') }}</h2>
     <p>{{ $t('auth.loginMessage') }}</p>
-    <div v-if="error && !errorHidden" class="message-error" @click="errorHide()">
-      <b>{{ $t('general.error') }}</b>:
-      <br> {{ error }}
-    </div>
+    <ErrorBox v-bind:error="error"></ErrorBox>
     <br>
     <label for="user">{{$t('general.user')}}</label><br>
     <input v-model="credentials.user" type="text" name="user" id="user" value="" :placeholder="$t('dummy.user')" />
@@ -29,6 +26,7 @@
 <script>
 import auth from '../middleware/auth'
 import config from '../config'
+import ErrorBox from './ErrorBox.vue'
 
 export default {
 
@@ -39,7 +37,6 @@ export default {
       disabled: false,
       error: '',
       isLoggingIn: false,
-      errorHidden: false,
       loadingDatabases: false,
       databases: [],
 
@@ -52,10 +49,6 @@ export default {
   },
 
   methods: {
-
-    errorHide () {
-      this.errorHidden = true
-    },
 
     startLoginState () {
       // set login button to disabled
@@ -74,6 +67,10 @@ export default {
 
       auth.login(this, credentials, 'home')
     }
+  },
+
+  components: {
+    ErrorBox
   },
 
   beforeMount () {
