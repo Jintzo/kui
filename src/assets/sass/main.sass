@@ -1,0 +1,313 @@
+/////////////
+//         //
+// IMPORTS //
+//         //
+/////////////
+@import url('https://fonts.googleapis.com/css?family=Dosis|Source+Sans+Pro:300,400,700')
+
+
+
+///////////////
+//           //
+// VARIABLES //
+//           //
+///////////////
+$color-main: #2c3e50
+$color-highlight: #4fc08d
+$color-error: #f66
+$color-background: hsla(31,15%,50%,.1)
+$color-background-heavy: hsla(31,15%,50%,.15);
+$font-family-main: 'Source Sans Pro', Helvetica, Arial, sans-serif
+$font-family-title: 'Dosis', serif
+
+
+
+////////////////
+//            //
+// TYPOGRAPHY //
+//            //
+////////////////
+a, router-link
+  text-decoration: none
+  color: $color-highlight
+  font-weight: bold
+
+button, .button
+  transition: background-color .2s
+  display: inline-block
+  padding: .6em 1em
+  background-color: $color-background-heavy
+  font-family: $font-family-main
+  border: 0
+  border-radius: .2em
+  cursor: pointer
+  font-size: .8125em
+  font-weight: 300
+  line-height: normal
+  text-decoration: none
+  white-space: nowrap
+  color: inherit
+
+  &:active, &:focus
+    border: 0
+    outline: none
+
+.button-highlight
+  background-color: $color-highlight
+  color: white
+.button-danger
+  background-color: $color-error
+  color: white
+.buttonDisabled
+  background-color: $color-background-heavy
+  color: inherit
+
+h2
+  font-family: $font-family-title
+  font-weight: normal
+  font-size: 2em
+
+h3
+  span
+    font-size: 0.8125em
+    display: inline-block
+    margin-left: 1em
+    a
+      font-weight: normal
+
+
+
+
+////////////////
+//            //
+// CONTAINERS //
+//            //
+////////////////
+*, :after, :before
+  box-sizing: border-box
+
+html
+  height: 100%
+  color: $color-main
+  font: 300 1em/1.4 $font-family-main
+  text-rendering: optimizeLegibility
+
+body
+  display: flex
+  box-orient: vertical
+  box-direction: normal
+  flex-direction: column
+  min-height: 100vh
+
+.entrypoint-main
+  display: flex
+  box-orient: vertical
+  box-direction: normal
+  flex-direction: column
+  min-height: 100vh
+
+.entrypoint-home
+  padding-bottom: 6em
+
+header
+  box-flex: 0
+  flex: none
+  display: block
+
+  .content
+    display: flex
+    padding: 1.5em
+    box-align: center
+    align-items: center
+    background-color: $color-background
+    text-align: center
+
+    .title
+      box-align: baseline
+      align-items: baseline
+      display: flex
+      font-family: $font-family-title
+      font-size: 1.5em
+      margin: 0 0 .15em
+
+      *
+        color: inherit
+        font-weight: bold
+        letter-spacing: 1px
+
+    .actions
+      display: flex
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      flex: 1;
+      flex-direction: row
+      box-orient: horizontal
+      box-direction: normal
+      -webkit-box-pack: end;
+      -webkit-justify-content: flex-end;
+      justify-content: flex-end;
+      font-size: .9em;
+
+      span
+        margin: 0 .4em
+
+.main
+  margin-top: 2em
+  padding-top: 2em
+  box-flex: 1
+  flex: 1 0 auto
+  padding: 1.5em 1.5em 0
+  display: block
+
+  .container
+    max-width: 80em
+    margin: 0 auto
+
+footer
+  text-align: center
+  background-color: $color-background
+  padding: 2em 0
+
+section
+  img
+    width: 100%
+    margin: 1em auto
+
+#banner
+  text-align: center
+  margin-bottom: 4em
+
+  .inner
+
+    h2
+      font-size: 3em
+      margin-bottom: 0
+      padding-bottom: 0
+    p
+      margin-top: -0.5em
+    ul
+      list-style-type: none
+      margin: 3em 0
+
+
+
+
+////////////////
+//            //
+// COMPONENTS //
+//            //
+////////////////
+.dropdown
+  position: relative
+  display: inline-block
+
+.dropdown-caret
+  margin-right: .5emtanner idu
+
+.open > .dropdown-menu,
+.open > .dropdown-flyout 
+  display: block
+
+
+.open .dropdown-caret 
+  transform: rotate(180deg)
+  display: inline-block
+
+
+.dropdown-caret
+  transition: transform 0.1s linear
+
+.dropdown-menu 
+  position: absolute
+  top: 100%
+  z-index: 1000
+  display: none
+  min-width: 160px
+  margin: 5px 0 0
+  list-style: none
+  border-radius: 5px
+  padding: 0.5rem 0
+  line-height: 2.5
+  background: #fff
+  li 
+    display: block
+    padding: 0rem 1.25rem
+    cursor: pointer
+    span 
+      margin-right: 0.5rem
+        
+.dropdown-left .dropdown-menu 
+  right: -0.5rem
+
+.dropdown-right .dropdown-menu 
+  left: -0.5rem
+
+.message-error
+  display: inline-block
+  min-width: 206px
+  position: absolute
+  top: 1.5em
+  right: calc(50% - 103px)
+  border-radius: .2em
+  padding: .6em
+  background-color: lighten($color-error, 2%)
+  box-shadow: 0 0 .5em lighten($color-main, 40%)
+  color: white
+  font-size: .8125em
+
+.message-highlight
+  display: inline-block
+  min-width: 206px
+  margin: .5em
+  border-radius: .2em
+  padding: .6em
+  background-color: lighten($color-highlight, 2%)
+  color: white
+  font-size: .8125em
+
+table
+  min-width: 50%
+
+td
+  border-bottom: 1px solid $color-background-heavy
+
+  .button
+    margin: .2em 0
+th
+  border-bottom: .2em solid $color-background-heavy
+
+
+
+///////////
+//       //
+// FORMS //
+//       //
+///////////
+input, select
+  display: inline-block
+  padding: .6em 1em
+  border: .2em solid $color-background-heavy
+  background-color: transparent
+  box-sizing: border-box
+  border-radius: .2em
+  font-family: $font-family-main
+  font-size: .8125em
+  font-weight: 300
+  line-height: normal
+  text-decoration: none
+  white-space: nowrap
+  color: inherit
+  margin: .5em
+
+  &:active, &:focus
+    border: .2em solid $color-highlight
+    outline: none
+input[type='text'], input[type='email'], input[type='password'], select
+  min-width: 260px
+
+label
+  display: inline-block
+  font-size: .8125em
+  font-weight: 400
+  margin-left: .5em
+  margin-top: .8125em
