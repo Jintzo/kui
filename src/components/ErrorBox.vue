@@ -1,7 +1,9 @@
 <template>
-  <div v-if="error && !errorHidden" class="message-error" @click="errorHide()">
-    <b>{{ $t('general.error') }}</b>:
-    <br> {{ error }}
+  <div v-if="error && !errorHidden" class="message-container" @click="errorHide()">
+    <div class="message message-error">
+      <b>{{ $t('general.error') }}</b>:
+      <br> {{ error }}
+    </div>
   </div>
 </template>
 <script>
