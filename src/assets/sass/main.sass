@@ -242,28 +242,34 @@ section
 .dropdown-right .dropdown-menu 
   left: -0.5rem
 
-.message-error
-  display: inline-block
-  min-width: 206px
+
+.message-container
   position: absolute
   top: 1.5em
-  right: calc(50% - 103px)
+  left: 50%
+
+.message
+  display: inline-block
+  min-width: 206px
+  position: relative
+  left: -50%
   border-radius: .2em
   padding: .6em
-  background-color: lighten($color-error, 2%)
   box-shadow: 0 0 .5em lighten($color-main, 40%)
   color: white
   font-size: .8125em
 
+  i
+    position: absolute
+    top: 0.5em
+    right: 0.5em
+    cursor: pointer
+
+.message-error
+  background-color: lighten($color-error, 2%)
+
 .message-highlight
-  display: inline-block
-  min-width: 206px
-  margin: .5em
-  border-radius: .2em
-  padding: .6em
   background-color: lighten($color-highlight, 2%)
-  color: white
-  font-size: .8125em
 
 table
   min-width: 50%
@@ -305,8 +311,12 @@ input, select
 input[type='text'], input[type='email'], input[type='password'], select
   min-width: 260px
 
+.input-field
+  position: relative
+
 label
   display: inline-block
+  width: 100%
   font-size: .8125em
   font-weight: 400
   margin-left: .5em
