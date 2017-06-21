@@ -1,12 +1,7 @@
 <template>
   <div class="entrypoint-home">
     <!-- if a user registered, he needs to be notified -->
-    <div v-if="typeof message !== 'undefined' && message !== ''">
-        <div class="message-highlight">
-        <b>{{ $t('general.success') }}</b>:
-        <br> {{ message }}
-      </div>
-    </div>
+    <MessageBox v-bind:message="message"></MessageBox>
     <div v-if="user.authenticated">
       <dashboard-component></dashboard-component>
     </div>
@@ -31,6 +26,7 @@ import auth from '../middleware/auth'
 
 // import child components
 // import DashboardComponent from './DashboardComponent.vue'
+import MessageBox from './MessageBox.vue'
 
 export default {
 
@@ -47,6 +43,7 @@ export default {
 
   components: {
     // DashboardComponent
+    MessageBox
   }
 }
 </script>
