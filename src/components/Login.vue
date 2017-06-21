@@ -14,7 +14,7 @@
     <select id="select-database" v-model="credentials.database">
       <option value="" selected disabled>
         <span v-if="loadingDatabases">{{$t('general.loading')}}</span>
-        <span v-if="!loadingDatabases">{{$t('general.select')}}</span>
+        <span v-if="!loadingDatabases">{{$t('general.selectDatabase')}}</span>
       </option>
       <option v-for="database in databases" :value="database">{{database}}</option>
     </select>
