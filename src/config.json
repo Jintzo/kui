@@ -1,7 +1,9 @@
 {
   "api": "http://localhost:3000/",
   "loginPath": "auth/login/",
-  "registerPath": "auth/register/",
+  "registerPath": "user/register/",
   "validatePath": "auth/validate/",
-  "databasesPath": "databases/available/"
+  "databasesPath": "databases/available/",
+  "projectPath": "project/",
+  "emptyProjectPath": "project/empty/"
 }
