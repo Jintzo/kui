@@ -18,6 +18,9 @@ export default {
       user: 'User',
       logout: 'Logout'
     },
+    dashboard: {
+      title: 'Overview'
+    },
     dummy: {
       user: 'John Doe',
       password: 'doejohn123'
