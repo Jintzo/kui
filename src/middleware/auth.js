@@ -16,7 +16,7 @@ export default {
    * @return {Object} the user
    */
   getUser () {
-    this.update()
+    this.checkAuth()
     return this.user
   },
 
@@ -53,6 +53,7 @@ export default {
           localStorage.setItem('id', result.body.userID)
           localStorage.setItem('name', credentials.user)
           localStorage.setItem('token', result.body.token)
+          localStorage.setItem('database', creds.database)
 
           if (redirect) {
             router.push({path: redirect, query: { message: context.$t('auth.loginSuccess') }})
@@ -135,19 +136,14 @@ export default {
    * check authentication state on page load
    */
   checkAuth () {
-    var jwt = localStorage.getItem('id_token')
+    var jwt = localStorage.getItem('token')
     if (jwt) {
       this.user.authenticated = true
       this.user.sessionHash = jwt
 
       // import everything else
-      this.user.isSupervisor = (localStorage.getItem('type') === 'supervisor')
       this.user.id = localStorage.getItem('id')
       this.user.name = localStorage.getItem('name')
-      this.user.mail = localStorage.getItem('mail')
-      this.user.address = localStorage.getItem('address')
-      this.user.phone = localStorage.getItem('phone')
-      this.user.electorID = localStorage.getItem('electorID')
     } else {
       this.user.authenticated = false
     }
