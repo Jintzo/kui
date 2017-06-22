@@ -25,7 +25,7 @@
 import auth from '../middleware/auth'
 
 // import child components
-// import DashboardComponent from './DashboardComponent.vue'
+import DashboardComponent from './DashboardComponent.vue'
 import MessageBox from './MessageBox.vue'
 
 export default {
@@ -36,13 +36,13 @@ export default {
    */
   data () {
     return {
-      user: auth.user,
+      user: auth.getUser(),
       message: this.$route.query.message
     }
   },
 
   components: {
-    // DashboardComponent
+    DashboardComponent,
     MessageBox
   }
 }
