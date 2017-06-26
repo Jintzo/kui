@@ -32,6 +32,10 @@ a, router-link
   color: $color-highlight
   font-weight: bold
 
+.error-text
+  color: darken($color-error, 30%)
+  font-size: 0.8125em
+
 button, .button
   transition: background-color .2s
   display: inline-block
@@ -63,6 +67,24 @@ button, .button
   color: inherit
 .button-inline
   margin-right: 1em
+
+.button-image
+  padding: 0
+  position: relative
+  margin-right: 0.5em
+  margin-bottom: 0.5em
+  .button-title
+    margin: 0.5em
+    font-weight: 400
+    display: block
+  .button-detail
+    display: block 
+    margin: 0.5em
+  img
+    width: 140px
+    border-radius: 0 0 .2em .2em
+    margin-bottom: -.25em
+
 
 h2
   font-family: $font-family-title
@@ -327,8 +349,9 @@ label
 // ----------------------------------------------------------------------------------------
 // PROJECT-BOX
 // ----------------------------------------------------------------------------------------
-.project-container
+.project-container, .sample-container
   border: 1px solid darken($color-background-heavy, 20%)
   padding: 0.5em
   border-radius: 5px
   box-shadow: 0 0 1em darken($color-background-heavy, 40%)
+  margin-bottom: 1em
